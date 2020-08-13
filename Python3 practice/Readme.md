@@ -1,4 +1,4 @@
-# Praktyczne wprowadzenie do Python3
+# Python3 practice
 ## Table of content
 ### Bot.py
 Simple bot script defined on functions. 
