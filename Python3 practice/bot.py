@@ -3,12 +3,16 @@
 
 def introduce():
     bot_name = "Bob"
-
     print("Hi, Im bot ", bot_name)
+    help()
+    options()
+
+
+def help():
     print("\n I can: \n * calculate - do some simple math for two numbers \n * name - asking for you name \n * join - "
           "merge two texts together \n * shopping - create a shopping list \n * note - write down you notes \n * "
-          "guess - entertain you with my guess word game! \n \n Pick one and have fun!")
-    options()
+          "guess - entertain you with my guess word game! \n help - list commands again \n exit - say bye to Bob! \n "
+          "\n Pick one and have fun!")
 
 
 def repeat():
@@ -17,7 +21,7 @@ def repeat():
 
 
 def options():
-    text = input("What I need to do?")
+    text = input("\n What I need to do? ")
     if text == "calculate":
         calculate()
     elif text == "name":
@@ -30,6 +34,11 @@ def options():
         notes()
     elif text == "guess":
         guessing()
+    elif text == "exit":
+        exit()
+    elif text == "help":
+        help()
+        options()
     else:
         repeat()
 
@@ -54,12 +63,14 @@ def calculate_ab(a, b):
 def name():
     username_bot = input("What is your name ?")
     print("Hi ", username_bot)
+    options()
 
 
 def join():
     a = input("Assign string a: ")
     b = input("Assign string b: ")
     print(join_text(a, b))
+    options()
 
 
 def join_text(a, b):
@@ -74,6 +85,7 @@ def shopping_list():
         a.append(item)
     print(a)
     as_list(a)
+    options()
 
 
 def as_list(a):
@@ -90,6 +102,7 @@ def notes():
         d[i] = note
     print(d)
     in_dictionary(d)
+    options()
 
 
 def in_dictionary(a):
@@ -113,6 +126,7 @@ def guessing():
                 else:
                     print("Your letter ", letter, "is not in my word!")
     print("Congratz!")
+    options()
 
 
 introduce()
