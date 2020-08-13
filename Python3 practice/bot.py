@@ -35,21 +35,20 @@ def options():
 
 
 def calculate():
-    # a = input("Assign a: ") input domyslnie jest brany jako string
+    # default input takes string from user
     a = int(input("Assign a: "))
     b = int(input("Assign b: "))
     calculate_ab(a, b)
 
 
 def calculate_ab(a, b):
-    # Operacje arytmetyczne
     print("a + b = ", a + b)
     print("a - b = ", a - b)
-    print("a / b = ", a / b)
-    print("a // a = ", a // b)  # dzielenie calkowite
+    print("a / b = ", a / b)  # divide, return float
+    print("a // a = ", a // b)  # divide, return integer
     print("a * b = ", a * b)
     print("a % b = ", a % b)  # modulo
-    print("a ** b = ", a ** b)  # potega
+    print("a ** b = ", a ** b)  # power
 
 
 def name():
@@ -69,7 +68,7 @@ def join_text(a, b):
 
 
 def shopping_list():
-    a = []  # od 0
+    a = []  # index start from 0
     for i in range(4):
         item = input("What I need to buy?")
         a.append(item)
