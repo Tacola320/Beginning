@@ -15,10 +15,10 @@ class Book:
             self.rating = 0
 
     def set_read(self, value):
-        if value == "True":
-            self.read = 1
-        elif value == "False":
-            self.read = 0
+        if value == "True" or value == True:
+            self.read = True
+        elif value == "False" or value == False:
+            self.read = False
         else:
             print("Improper read status - read status set as default - False \n Modify it if you want")
 
@@ -31,12 +31,14 @@ class BookBot:
         print("\nHi, Im bot Olivier - I will assist you. Pick what you want to do: ")
         self.help()
         self.options()
+        self.load_books()
 
     def help(self):
         print("\n Commands: ")
         print("Add - Add new book")
         print("List - List books from shelf")
         print("Modify - Choose a book and change record")
+        print("Save - Save database to csv file")
         print("Help - View available commands")
         print("Exit - Say goodbye to Olivier")
 
@@ -48,6 +50,8 @@ class BookBot:
             self.list_books()
         elif text == "Modify":
             self.pick_book_change()
+        elif text == "Save":
+            self.save_books()
         elif text == "Exit":
             exit()
         elif text == "Help":
@@ -66,7 +70,6 @@ class BookBot:
 
     def print_book(self, index):
         book = self.shelf[index]
-        print(book.title)
         print("{:4} | {:30} | {:30} | {:5} | {:5}".format(index, book.title, book.authors, book.rating, book.read))
 
     def list_books(self):
@@ -115,7 +118,41 @@ class BookBot:
         print("\n---- ----- ---- ----- ---- ----")
         self.options()
 
+    def print_all_read_book(self):
+        for i in range(len(self.shelf)):
+            book = self.shelf[i]
+            if book.read:
+                self.print_book(i)
+
+    def print_all_rating_books(self, min, max):
+        for i in range(len(self.shelf)):
+            book = self.shelf[i]
+            if min <= book.rating <= max:
+                self.print_book(i)
+
+    def save_books(self):
+        text_holder = []
+        for i in range(len(self.shelf)):
+            book = self.shelf[i]
+            text = "{};{};{};{}".format(book.title, book.authors, book.rating, book.read)
+            text_holder.append(text)
+        with open('books.csv', 'w') as f:
+            for line in text_holder:
+                f.write(line + '\n')
+        self.options()
+
+    def load_books(self):
+        with open('books.csv', 'r') as f:
+            for line in f:
+                book_list = line.split(';')
+                if book_list[3] == 'True\n':
+                    read = True
+                else:
+                    read = False
+                self.add_book(book_list[0], book_list[1], float(book_list[2]), read)
+
 
 bot = BookBot()
 bot.insert_book()
-bot.introduce()
+#bot.introduce()
+
