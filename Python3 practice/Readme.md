@@ -29,3 +29,11 @@ Simple bot vol2. defined on classes.
     4. List obtained books.
     5. Filter books.
     6. Keeping books data in memory.
+    
+**Learned:**
+* Class structure, function definition
+* Write and read file
+* Try except instruction to catch exceptions
+* Print values by using .format 
+* Split values - .split usage
+* Add record to the end of the list - .append
