@@ -66,3 +66,7 @@ More advanced bot - based on modularity and http server gui.
         - Command line usage and HTTP
         
 **Learned:**
+* JSON library - json.load, dump and dictionary referencing 
+* OS library - list all files in dir (.listdir)
+* Strings - usage of split, lower, replace
+* List - add to the end of list - .append
