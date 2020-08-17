@@ -37,3 +37,32 @@ Simple bot vol2. defined on classes.
 * Print values by using .format 
 * Split values - .split usage
 * Add record to the end of the list - .append
+
+### Bot v3
+More advanced bot - based on modularity and http server gui.
+
+**Functionality:**
+
+    1. Information about book:
+        - Title and subtitle
+        - Authors
+        - Publishing house
+        - Publish date
+        - Read date (if read)
+        - Owner (included borrow case)
+        - User (included borrowing own book to another user)
+        - Rate (1-10 scale)
+        - Note and review
+    2. Managing:
+        - Add new book
+        - Book data modification
+        - Book atributes filterring
+        - Borrowing book reminder
+        - Borrow book mechanism for defined time
+        - Data archive - backup
+    3. Project objectives:
+        - Simple structure
+        - Clean and extendable code
+        - Command line usage and HTTP
+        
+**Learned:**
